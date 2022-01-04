@@ -1,0 +1,5 @@
+<div class='flex flex-col'>
+  {{#each @model as |post|}}
+    <LinkTo @route='post' @model={{post}} class='py-2'>{{post.title}}</LinkTo>
+  {{/each}}
+</div>
