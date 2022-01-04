@@ -1,3 +1,9 @@
-<h2 class='text-xl font-semibold'>
-  {{@model.title}}
-</h2>
+<Providers::Posts as |provider|>
+  {{did-insert (fn provider.fns.loadDetails @model)}}
+  <h2 class='text-xl font-semibold'>
+    {{@model.title}}
+  </h2>
+  {{#if (includes @model.id provider.data.loadedPostsIds)}}
+    <div>Details are loaded</div>
+  {{/if}}
+</Providers::Posts>
